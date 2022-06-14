@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+# Identification of sentences in active and passive voices.
 
-You can use the [editor on GitHub](https://github.com/annbalan/annbalan.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+In my program I tried to compare the number of sentences written in passive with the ones in active voice in news articles and literature.These two genres of texts  were chosen because they are supposed to have relatively high percentage of sentences in passive. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Usage
 
-### Markdown
+Using text files "newsarticles_en.txt" and  "dune_en.txt" you can compare the number of sentences in passive and active voices for English. There is a flag "--en" which you have to choose in order to specify the language:
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+	§python3 main.py newsarticles_en.txt dune_en.txt --en
 
-```markdown
-Syntax highlighted code block
+If you want to see an example for active and passive voice you can use an optional flag  "--examples" which will provide you with some sentences from the texts:
 
-# Header 1
-## Header 2
-### Header 3
+ 	§python3 main.py newsarticles_en.txt dune_en.txt --en --examples
 
-- Bulleted
-- List
+As for German, it is necessary to use other texts:"newsarticles_de.txt" and "die_verwandlung_de.txt"
+Use the `--de` flag to specify this language:
 
-1. Numbered
-2. List
+    §python main.py newsarticles_de.txt die_verwandlung_de.txt --de
 
-**Bold** and _Italic_ and `Code` text
+As it was mentioned before in order to see some example add the flag "--examples":
 
-[Link](url) and ![Image](src)
-```
+    §python main.py newsarticles_de.txt die_verwandlung.txt --de --examples
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Jekyll Themes
+## Classification accuracy
+To run the program that contains tests for the classification accuracy, it is necessary to write in the console(the texts for the tests "test_en.txt" and "test_de.txt" must be located in the same directory):
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/annbalan/annbalan.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+	§python3 test_number_percentage.py
+  
+### Packages
+It is important to have installed spacy packages for English: 
 
-### Support or Contact
+`§python -m spacy download en_core_web_sm`
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+and for German:
+`§python -m spacy download de_core_news_sm`
+
+
+
+
+
